@@ -13,6 +13,7 @@ class ImagesListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Images"),),
       body: Container(
         child: FutureBuilder<List<UnsplashImage>>(
           future: repository.images(),

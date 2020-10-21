@@ -3,9 +3,10 @@ import 'package:unsplash_gallery/entity/author.dart';
 class UnsplashImage {
   String name;
   Author author;
-  String url;
+  String mini;
+  String normal;
 
-  UnsplashImage({this.name, this.author, this.url});
+  UnsplashImage({this.name, this.author, this.mini, this.normal});
 
   factory UnsplashImage.fromJson(Map<String, dynamic> json){
     return UnsplashImage(
@@ -14,14 +15,11 @@ class UnsplashImage {
         firstName: json["user"]["first_name"],
         lastName: json["user"]["last_name"] ?? ""
       ),
-      url: json["urls"]["small"],
+      mini: json["urls"]["small"],
+      normal: json["urls"]["regular"]
     );
   }
 
-  @override
-  String toString() {
-    return 'UnsplashImage{name: $name, author: $author, url: $url}';
-  }
 
 
 }
