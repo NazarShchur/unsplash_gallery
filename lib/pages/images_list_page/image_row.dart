@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:unsplash_gallery/entity/unsplash_image.dart';
 import 'package:unsplash_gallery/pages/image_page/image_page.dart';
+import 'package:unsplash_gallery/pages/images_list_page/style.dart';
 
 class ImageRow extends StatelessWidget {
   final UnsplashImage image;
@@ -11,8 +12,8 @@ class ImageRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-      height: 100,
+      decoration: BoxDecoration(border: Border.all(color: Style.borderColor)),
+      height: Style.imageSize,
       child: Row(
         children: [
           GestureDetector(
@@ -20,7 +21,7 @@ class ImageRow extends StatelessWidget {
                 _onImageTap(context);
               },
               child: SizedBox(
-                  width: 100,
+                  width: Style.imageSize,
                   child: Image(
                     image: NetworkImage(image.mini),
                     fit: BoxFit.cover,
@@ -29,8 +30,8 @@ class ImageRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Name: ${image.name}", overflow: TextOverflow.ellipsis),
-                Text("Author: ${image.author.firstName} ${image.author.lastName}")
+                Text("${Style.name}: ${image.name}", overflow: TextOverflow.ellipsis),
+                Text("${Style.author}: ${image.author.firstName} ${image.author.lastName}")
               ],
             ),
           )
