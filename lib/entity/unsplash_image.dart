@@ -9,12 +9,12 @@ class UnsplashImage {
 
   factory UnsplashImage.fromJson(Map<String, dynamic> json){
     return UnsplashImage(
-      name: json["description"],
+      name: json["description"] ?? json["id"],
       author: Author(
         firstName: json["user"]["first_name"],
-        lastName: json["user"]["last_name"]
+        lastName: json["user"]["last_name"] ?? ""
       ),
-      url: json["urls"]["raw"]
+      url: json["urls"]["small"],
     );
   }
 
